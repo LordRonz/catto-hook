@@ -12,10 +12,14 @@ import os
 
 def main():
     read_env()
-    webhook_url = os.getenv("WEBHOOK_URL", "")
+    is_ci = os.getenv("CI", "") == "true"
+
+    webhook_url: str = os.getenv("WEBHOOK_URL_DEV" if is_ci else "WEBHOOK_URL", "")
+    if is_ci and not webhook_url:
+        webhook_url = os.getenv("WEBHOOK_URL", "")
+
     img = ''
-    mode = choice(['reddit', 'catapi'])
-    mode = 'catapi'
+    mode = choice(['reddit', 'catapi', 'catapi', 'catapi'])
     if mode == 'reddit':
         reddit = get_reddit_instance()
         result = list(reddit.subreddit("cats").top("week"))
