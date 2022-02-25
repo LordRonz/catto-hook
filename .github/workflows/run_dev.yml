@@ -1,0 +1,31 @@
+name: Run catto hook dev
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run_main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.9]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Catto
+        env:
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          WEBHOOK_URL_DEV: ${{ secrets.WEBHOOK_URL_DEV }}
+          CATAPI_KEY: ${{ secrets.CATAPI_KEY }}
+        run: python main.py
