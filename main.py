@@ -1,7 +1,9 @@
 from utils.read_env import read_env
-from reddit.reddit import get_reddit_instance
+from catto.reddit import get_reddit_instance
+from catto.catapi import CatAPI
 from utils.helper import is_image
 from secrets import choice
+from catto.fact import CatFact
 from discord_webhook.discord_webhook import DiscordWebhook
 import config
 from datetime import datetime
@@ -11,17 +13,28 @@ import os
 def main():
     read_env()
     webhook_url = os.getenv("WEBHOOK_URL", "")
-    reddit = get_reddit_instance()
-    result = list(reddit.subreddit("cats").top("week"))
-    while True:
-        img = choice(result).url
-        if is_image(img):
-            break
+    img = ''
+    mode = choice(['reddit', 'catapi'])
+    mode = 'catapi'
+    if mode == 'reddit':
+        reddit = get_reddit_instance()
+        result = list(reddit.subreddit("cats").top("week"))
+        retry = 0
+        while retry < 20:
+            img = choice(result).url
+            if is_image(img):
+                break
+            retry += 1
 
-    while True:
-        thumbnail = choice(result).url
-        if is_image(img):
-            break
+        retry = 0
+        while retry < 20:
+            thumbnail = choice(result).url
+            if is_image(img):
+                break
+            retry += 1
+    elif mode == 'catapi':
+        img = CatAPI().get_cat()
+        thumbnail = CatAPI().get_cat()
 
     webhook = DiscordWebhook(
         url=webhook_url,
@@ -29,9 +42,12 @@ def main():
         avatar_url=config.AVATAR_URL,
     )
 
+    description = f"Random cat facts:\n{CatFact(10).get_fact()}"
+
     webhook.add_embed(
         {
-            "title": "Your daily cat pic has arrived",
+            "title": "Your daily catto hook has arrived",
+            "description": description,
             "color": 0x631313,
             "image": {
                 "url": img,
