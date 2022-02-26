@@ -1,4 +1,5 @@
 import requests
+from os import getenv
 
 
 class CatAPI:
@@ -6,6 +7,8 @@ class CatAPI:
         self.api_url = "https://api.thecatapi.com/"
 
     def get_cat(self):
-        res = requests.get(f"{self.api_url}v1/images/search")
+        api_key = getenv("CATAPI_KEY")
+        headers = {"x-api-key": api_key}
+        res = requests.get(f"{self.api_url}v1/images/search", headers=headers)
         cat = res.json()
-        return cat[0]['url']
+        return cat[0]["url"]

@@ -18,9 +18,9 @@ def main():
     if is_ci and not webhook_url:
         webhook_url = os.getenv("WEBHOOK_URL", "")
 
-    img = ''
-    mode = choice(['reddit', 'catapi', 'catapi', 'catapi'])
-    if mode == 'reddit':
+    img = ""
+    mode = choice(["reddit", "catapi", "catapi", "catapi"])
+    if mode == "reddit":
         reddit = get_reddit_instance()
         result = list(reddit.subreddit("cats").top("week"))
         retry = 0
@@ -36,7 +36,7 @@ def main():
             if is_image(img):
                 break
             retry += 1
-    elif mode == 'catapi':
+    elif mode == "catapi":
         img = CatAPI().get_cat()
         thumbnail = CatAPI().get_cat()
 
