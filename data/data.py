@@ -65,12 +65,19 @@ catmojis = [
         "name": "SCchilling",
         "id": "853896881532567572",
         "animated": True,
-    }
+    },
+    {
+        "name": "SCcatkiss",
+        "id": "750470459866480650",
+        "animated": True,
+    },
 ]
+
 
 def get_catmoji():
     catmoji = choice(catmojis)
     return f"<{'a' if catmoji['animated'] else ''}:{catmoji['name']}:{catmoji['id']}>"
+
 
 # https://discord.com/channels/305627343895003136/845532524724879380/907373349024432150
 # https://discord.com/channels/747830885339889796/749030749591568484/792317725887168522
