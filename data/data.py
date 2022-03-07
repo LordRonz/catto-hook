@@ -1,4 +1,5 @@
 from secrets import choice
+from base64 import b64decode
 
 catmojis = [
     {
@@ -81,3 +82,33 @@ def get_catmoji():
 
 # https://discord.com/channels/305627343895003136/845532524724879380/907373349024432150
 # https://discord.com/channels/747830885339889796/749030749591568484/792317725887168522
+
+closings = [
+    "THV2IHlh",
+    "WE9YTw==",
+    "TG92ZSB5b3U=",
+    "TWlzc2luZyB5b3UgZXZlcnkgbW9tZW50",
+    "VGhpbmtpbmcgb2YgeW91",
+    "V2l0aCBsb3Zl",
+    "TG90cyBvZiBsb3Zl",
+    "U3RpbGwgdGhpbmtpbmcgb2YgeW91",
+    "TXVjaCBsb3Zl",
+    "QWxsIG15IGxvdmU=",
+    "QWx3YXlz",
+    "U2VuZGluZyB5b3UgYWxsIG15IGxvdmU=",
+    "WW91ciBkZXZvdGVkIGxvdmVy",
+    "VGUgYW1v",
+    "V28gYWkgbmk=",
+    "SmUgdCdhaW1l",
+    "SWNoIGxpZWJlIGRpY2g=",
+    "T25lIHdobyBoYXMgYmVlbiBtZXNtZXJpemVk",
+    "QWxsIG15IGhlYXJ0",
+    "VGFra2FuIHBlcm5haCBjYXBlayBiaWxhbmcgaWx5",
+    "TXVuZ2tpbiBpbmkgYWxheSwgdGFwaSBiaWFyaW4=",
+    "S2FsbyBrbSBtZXJhc2EgaW5pIGFsYXksIGJpbGFuZyB5YXA=",
+    "QXlhZmx1",
+]
+
+
+def get_closings():
+    return f"{b64decode(choice(closings)).decode()}, A."
