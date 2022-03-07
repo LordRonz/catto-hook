@@ -4,7 +4,7 @@ from catto.catapi import CatAPI
 from utils.helper import is_image
 from secrets import choice
 from catto.fact import CatFact
-from data.data import get_catmoji
+from data.data import get_catmoji, get_closings
 from discord_webhook.discord_webhook import DiscordWebhook
 import config
 from datetime import datetime
@@ -48,7 +48,7 @@ def main():
     )
 
     catmoji = " ".join(get_catmoji() for _ in range(5))
-    description = f"{catmoji}\nRandom cat facts:\n{CatFact(10).get_fact()}"
+    description = f"{catmoji}\nRandom cat facts:\n\n{CatFact(10).get_fact()}"
 
     catmoji_title = " ".join(get_catmoji() for _ in range(3))
 
@@ -63,6 +63,10 @@ def main():
             "timestamp": datetime.now().isoformat(),
             "thumbnail": {
                 "url": thumbnail,
+            },
+            "footer": {
+                "text": get_closings(),
+                "icon_url": "https://www.freeiconspng.com/uploads/love-png-5.png",
             },
             "url": img,
         }
