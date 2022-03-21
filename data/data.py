@@ -107,6 +107,10 @@ closings = [
     "TXVuZ2tpbiBpbmkgYWxheSwgdGFwaSBiaWFyaW4=",
     "S2FsbyBrbSBtZXJhc2EgaW5pIGFsYXksIGJpbGFuZyB5YXA=",
     "QXlhZmx1",
+    "SSA8MyB5b3U=",
+    "YWt1IHNheWFuZyBrbQ==",
+    "SSB3dXYgeW91",
+    "QnVsYW5ueWEgaW5kYWggeWE=",
 ]
 
 
