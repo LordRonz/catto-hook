@@ -14,7 +14,7 @@ pyparsing==3.0.7
 pytest==7.1.1
 requests==2.27.1
 tomli==2.0.1
-types-requests==2.27.14
+types-requests==2.27.15
 types-urllib3==1.26.11
 typing_extensions==4.1.1
 update-checker==0.18.0
