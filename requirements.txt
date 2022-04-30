@@ -11,7 +11,7 @@ praw==7.5.0
 prawcore==2.3.0
 py==1.11.0
 pyparsing==3.0.8
-pytest==7.1.1
+pytest==7.1.2
 requests==2.27.1
 tomli==2.0.1
 types-requests==2.27.20
