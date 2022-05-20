@@ -2,13 +2,14 @@
 Pulled from https://github.com/lovvskillz/python-discord-webhook/blob/master/discord_webhook/webhook.py with some modifications
 """
 
-from utils.logger import get_logger
-from discord_webhook.webhook_exceptions import ColourNotInRangeException
+import datetime
 import json
 import time
-import datetime
+
 import requests
 
+from discord_webhook.webhook_exceptions import ColourNotInRangeException
+from utils.logger import get_logger
 
 logger = get_logger()
 

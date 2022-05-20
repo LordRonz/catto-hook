@@ -1,5 +1,5 @@
-from secrets import choice
 from base64 import b64decode
+from secrets import choice
 
 catmojis = [
     {
@@ -116,3 +116,16 @@ closings = [
 
 def get_closings():
     return f"{b64decode(choice(closings)).decode()}, A."
+
+quotes = [
+    "SSA8MyB5b3U=",
+    "QWt1IHNheWFuZyBrYW11",
+    "UGFnaSBtYW5pc2t1dQ==",
+    "SWx5c20=",
+    "SSB3dXYgeW91",
+    "QnVsYW5ueWEgaW5kYWgga2VrIGtt",
+    "QXlhZmx1",
+]
+
+def get_quotes():
+    return b64decode(choice(quotes)).decode()

@@ -1,5 +1,6 @@
-from data.data import closings
 from base64 import b64decode, b64encode
+
+from data.data import closings
 
 
 def test_closing():

@@ -1,14 +1,15 @@
-from utils.read_env import read_env
-from catto.reddit import get_reddit_instance
-from catto.catapi import CatAPI
-from utils.helper import is_image
+import os
+from datetime import datetime
 from secrets import choice
+
+import config
+from catto.catapi import CatAPI
 from catto.fact import CatFact
+from catto.reddit import get_reddit_instance
 from data.data import get_catmoji, get_closings
 from discord_webhook.discord_webhook import DiscordWebhook
-import config
-from datetime import datetime
-import os
+from utils.helper import is_image
+from utils.read_env import read_env
 
 
 def main():
@@ -20,7 +21,7 @@ def main():
         webhook_url = os.getenv("WEBHOOK_URL", "")
 
     img = ""
-    mode = choice(["reddit", "catapi", "catapi", "catapi"])
+    mode = choice(["reddit", "catapi", "catapi", "catapi", "catapi"])
     if mode == "reddit":
         reddit = get_reddit_instance()
         result = list(reddit.subreddit("cats").top("week"))

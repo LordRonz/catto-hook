@@ -1,5 +1,6 @@
-import praw
 from os import getenv
+
+import praw
 
 
 def get_reddit_instance():
