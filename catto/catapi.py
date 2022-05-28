@@ -11,8 +11,8 @@ class CatAPI:
         self.api_url = "https://api.thecatapi.com/"
 
     def get_cat(self):
-        if randint(0, 1) == 1:
-            return self.get_cat2()
+        # if randint(0, 1) == 1:
+        #     return self.get_cat2()
 
         api_key = getenv("CATAPI_KEY")
         headers = {"x-api-key": api_key}
