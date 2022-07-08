@@ -111,11 +111,15 @@ closings = [
     "YWt1IHNheWFuZyBrbQ==",
     "SSB3dXYgeW91",
     "QnVsYW5ueWEgaW5kYWggeWE=",
+    "SSBsb3ZlIHlvdSB0byB0aGUgbW9vbiBhbmQgYmFjaw==",
+    "bXVjaCBsb3ZlIGhvbmVleQ==",
+    "aGF2ZSBhIG5pY2UgZGF5IGRhcmxpbmc=",
 ]
 
 
 def get_closings():
     return f"{b64decode(choice(closings)).decode()}, A."
+
 
 quotes = [
     "SSA8MyB5b3U=",
@@ -126,6 +130,7 @@ quotes = [
     "QnVsYW5ueWEgaW5kYWgga2VrIGtt",
     "QXlhZmx1",
 ]
+
 
 def get_quotes():
     return b64decode(choice(quotes)).decode()
