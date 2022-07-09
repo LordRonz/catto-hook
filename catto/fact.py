@@ -16,7 +16,10 @@ class CatFact:
         retry = 0
         while retry < 10:
             res = requests.get(f"{self.api_url}facts/random?amount={self.amount}")
-            cat_facts = res.json()
+            try:
+                cat_facts = res.json()
+            except requests.exceptions.JSONDecodeError:
+                continue
             for fact in cat_facts:
                 if fact["status"]["verified"]:
                     return fact["text"]
