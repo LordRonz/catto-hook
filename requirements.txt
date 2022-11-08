@@ -15,7 +15,7 @@ pytest==7.1.2
 requests==2.27.1
 tomli==2.0.1
 types-requests==2.27.30
-types-urllib3==1.26.14
+types-urllib3==1.26.25.2
 typing_extensions==4.2.0
 update-checker==0.18.0
 urllib3==1.26.9
