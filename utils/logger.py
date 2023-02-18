@@ -38,3 +38,5 @@ def get_logger(name: str = "Guten Abend"):
     logger.addHandler(stdout_handler)
 
     return logger
+
+logger = get_logger()

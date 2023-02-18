@@ -9,9 +9,7 @@ import time
 import requests
 
 from discord_webhook.webhook_exceptions import ColourNotInRangeException
-from utils.logger import get_logger
-
-logger = get_logger()
+from utils.logger import logger
 
 
 class DiscordWebhook:
