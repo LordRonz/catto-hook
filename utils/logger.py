@@ -39,4 +39,5 @@ def get_logger(name: str = "Guten Abend"):
 
     return logger
 
+
 logger = get_logger()
