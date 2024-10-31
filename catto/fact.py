@@ -12,7 +12,7 @@ class CatFact:
     def get_fact(self):
         # if randint(0, 1) == 1:
         #     return self.get_fact_2()
-        return self.get_fact_2
+        return self.get_fact_2()
 
         retry = 0
         while retry < 10:
