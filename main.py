@@ -65,8 +65,7 @@ def main():
         except Exception as e:
             logger.error("Exception occured!")
             logger.error(e)
-            logger.info(f"Retrying...")
-            pass
+            logger.info("Retrying...")
 
     logger.info("Got the image and thumbnail!")
     logger.info(f"Image: {img}")
@@ -78,10 +77,14 @@ def main():
         avatar_url=config.AVATAR_URL,
     )
 
+    logger.info(f"Webhook created: {webhook.url}")
+
     catmoji = " ".join(get_catmoji() for _ in range(5))
     description = f"{catmoji}\nRandom cat facts:\n\n{CatFact(10).get_fact()}"
 
     catmoji_title = " ".join(get_catmoji() for _ in range(3))
+
+    logger.info(f"Catmoji: {catmoji}")
 
     webhook.add_embed(
         {
